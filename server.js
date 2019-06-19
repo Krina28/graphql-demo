@@ -1,7 +1,23 @@
 var express = require('express');
-var { GraphQLUpload } = require('apollo-server-express');
+var express_graphql = require('express-graphql');
+var { buildSchema } = require('graphql');
+
+var schema = buildSchema(`
+    type Query {
+        message: String
+    }
+`);
+var root = {
+    message: () => 'Hello World!'
+};
 
 var app = express();
+
+app.use('/graphql', express_graphql({
+    schema: schema,
+    rootValue: root,
+    graphiql: true
+}));
 
 app.get('/list', function (req, res) {
     res.send('<html> <body> <h2>Hello World</h2> </body></html>')
