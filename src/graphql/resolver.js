@@ -1,22 +1,16 @@
-const books = [{
-    id: 3,
-    title: 'The Girl on the train',
-    authors: [{id:2, name:'Paula Hawkins',age:30},{id:52, name:'Paula 5Hawkins',age:350}]
-},
-{
-    id: 2,
-    title: ' Girl on the train',
-    authors: [{id:2, name:'Paula Hawkins',age:30},{id:52, name:'Paula 5Hawkins',age:350}]
-}]
+const userCtrl = require('../controllers/userController');
+const productCtrl = require('../controllers/productController');
 
 var resolvers = {
     Query: {
-        getBooks(root, args) {
-            return books;
+        getAllUsers() {
+            return userCtrl.getAllUserList();
         },
-        getBookById(root, args) {
-            const results = books.filter(({id}) => id == args.id);
-            return results.length > 0 ? results[0] : {};
+        getUser(obj, { id }) {
+            return userCtrl.getUserById({ id });
+        },
+        getAllProducts() {
+            return productCtrl.getAllProductList();
         }
     }
 };

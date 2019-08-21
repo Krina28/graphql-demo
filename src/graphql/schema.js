@@ -1,21 +1,23 @@
-var { gql} = require('apollo-server-express');
+var { gql } = require('apollo-server-express');
 
 var typeDefs = gql`
-type Book {
+type Product {
     id: Int,
-    title: String,
-    authors: [Author]
+    name: String,
+    category: String,
+    warehouse: String
 }
-type Author {
+type User {
     id: Int,
     name: String,
     age: Int,
-    books: [Book]
+    email: String,
+    address: String
 }
 type Query {
-    getBooks: [Book],
-    getBookById(id: Int!): Book,
-    getAuthors: [Author]
+    getAllUsers: [User]
+    getUser(id: Int!): User
+    getAllProducts: [Product]
 }`;
 
 module.exports = typeDefs;
