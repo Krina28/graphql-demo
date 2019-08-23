@@ -1,3 +1,5 @@
+const { Product } = require("../models/product");
+
 const products = [{
     id: 1,
     name: 'Cold Coffee',
@@ -17,7 +19,9 @@ const products = [{
 }]
 
 let productCtrl = {
-    getAllProductList() {
+    getAllProductList: async () => {
+        let response = await Product.find({}).exec();
+        console.log('product response', response)
         return products;
     }
 }

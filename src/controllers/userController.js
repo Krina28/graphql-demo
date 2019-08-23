@@ -1,3 +1,5 @@
+const { Product } = require("../models/user");
+
 const users = [{
     id: 3,
     name: 'test user',
@@ -14,7 +16,9 @@ const users = [{
 }]
 
 let userCtrl = {
-    getAllUserList() {
+    getAllUserList: async () => {
+        let response = await Product.find({}).exec();
+        console.log('response', response)
         return users;
     },
     getUserById(args) {
