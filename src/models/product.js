@@ -1,12 +1,14 @@
 const mongoose = require('mongoose');
+//var database = require("../config/index");
 const { Schema } = mongoose;
 
 const productSchema = new Schema({
-    id: Number,
-    name: String,
+    fname: String,
     category: String,
     warehouse: String
-})
+}, {
+        collection: "product"
+    })
 
 const Product = mongoose.model('Product', productSchema);
 
