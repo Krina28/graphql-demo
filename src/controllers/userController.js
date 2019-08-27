@@ -1,10 +1,6 @@
 const { User } = require("../models/user");
 
 let userCtrl = {
-    addUser: async (args) => {
-        let allUsers = await User.insert(args);
-        return allUsers;
-    },
     getAllUserList: async () => {
         let response = await User.find();
         return response;
@@ -12,6 +8,17 @@ let userCtrl = {
     getUserById(args) {
         let user = users.filter(user => user.id == args.id)
         return user[0];
+    },
+    addUser: async (args) => {
+        await User.create(args, function (err, data) {
+            let addedUser = {};
+            if (err) {
+                console.log("Something wrong when adding data!");
+            }
+            delete data.__v;
+            addedUser = data;
+            return addedUser;
+        })
     },
     updateUser: async (args) => {
         let query = { _id: args._id };

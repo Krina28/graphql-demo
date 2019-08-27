@@ -9,15 +9,15 @@ var resolvers = {
         getUser(obj, { id }) {
             return userCtrl.getUserById({ id });
         },
-        addUser() {
-            return userCtrl.addUser();
-        },
         getAllProducts() {
             return productCtrl.getAllProductList();
         }
     },
 
     Mutation: {
+        addUser(obj, args) {
+            return userCtrl.addUser(args);
+        },
         updateUser(obj, args) {
             return userCtrl.updateUser(args);
         }

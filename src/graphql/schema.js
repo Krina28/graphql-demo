@@ -17,10 +17,10 @@ type Query {
     getAllUsers: [User]
     getUser(id: Int!): User
     getAllProducts: [Product]
-    addUser: [User]
 }
 type Mutation {
     updateUser(_id: String!, name: String, age: Int, email:String, address: String): User
+    addUser(email:String!, name: String, age: Int, address: String): User
 }`;
 
 module.exports = typeDefs;
