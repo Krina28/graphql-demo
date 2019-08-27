@@ -12,6 +12,15 @@ var resolvers = {
         getAllProducts() {
             return productCtrl.getAllProductList();
         }
+    },
+
+    Mutation: {
+        addUser(obj, args) {
+            return userCtrl.addUser(args);
+        },
+        updateUser(obj, args) {
+            return userCtrl.updateUser(args);
+        }
     }
 };
 
