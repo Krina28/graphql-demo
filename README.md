@@ -1,4 +1,4 @@
-# GraphQL Demo in nodejs
+# GraphQL Demo in Nodejs with MongoDB
 
 ## Dependency
 Node version : Node v6
@@ -6,7 +6,7 @@ Node version : Node v6
 NPM version : npm v5
 
 ## Installation
-`npm install apollo-server-express graphql graphql-tools express --save`
+`npm install apollo-server-express graphql graphql-tools express mongoose --save`
 
 ## GraphiQL Playground
 - Add `playground: true` to server creation script and that will allow to open graghiql playground while running the query.
@@ -16,11 +16,9 @@ NPM version : npm v5
 ```jsx
 var express = require('express');
 var { ApolloServer } = require('apollo-server-express');
-var graphqlTools = require('graphql-tools');
 var typeDefs = require('./src/graphql/schema')
 var resolvers = require('./src/graphql/resolver')
-
-var schema = graphqlTools.makeExecutableSchema({ typeDefs, resolvers });
+require('./src/config/index');
 
 const app = express();
 
@@ -35,7 +33,16 @@ app.listen({ port: 3000 }, function () {
 ## Features
 - Grahql Apollo Express Server Integration
 - Schema & Resolvers Implementation
+- Saclar Type Implementation
 - Queries & Examples 
+
+## Dependencies
+- express - For Express Server
+- bcrypt - For Encyption
+- body-parser - For parsing
+- graphql - For Query API
+- mongoose - To manage relationships with data and schema for MongoDB
+- apollo-server-express - For Graphql Connection with Express Server
 
 Feel free to reach out through LinkedIn or Stack overflow !!
 
