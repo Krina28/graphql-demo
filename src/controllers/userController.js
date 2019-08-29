@@ -12,12 +12,15 @@ let userCtrl = {
     addUser: async (args) => {
         await User.create(args, function (err, data) {
             let addedUser = {};
-            if (err) {
-                console.log("Something wrong when adding data!");
-            }
-            delete data.__v;
-            addedUser = data;
-            return addedUser;
+            console.log('addedUsersdfsdf', data)
+            // if (err) {
+            //     console.log("Something wrong when adding data!", err);
+            //     return err;
+            // }
+            // delete data.__v;
+            // addedUser = data;
+
+            // return addedUser;
         })
     },
     updateUser: async (args) => {

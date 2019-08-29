@@ -4,7 +4,11 @@ let productCtrl = {
     getAllProductList: async () => {
         let response = await Product.find();
         return response;
-    }
+    },
+    addCompany: async () => {
+        let response = await Product.find();
+        return response;
+    },
 }
 
 module.exports = productCtrl;
