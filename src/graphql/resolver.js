@@ -22,7 +22,7 @@ const HashedPassword = new GraphQLScalarType({
         // value comes from the client
         if (ast.value) {
             let call = await encryptPwd(ast.value)
-            console.log('after call', call)
+            // console.log('after call', call)
             return call;
         }
     }
@@ -30,12 +30,15 @@ const HashedPassword = new GraphQLScalarType({
 
 //generates hashed password using bcrypt
 async function encryptPwd(password) {
+    let finalVal;
     await bcrypt.genSalt(saltRounds, function (err, salt) {
         bcrypt.hash(password, salt, function (err, hash) {
             // Store hash in your password DB.
-            console.log('hash', password, hash)
+            // console.log('hash', password, hash)
             finalVal = hash;
+            return hash;
         });
+        return finalVal;
     });
 }
 

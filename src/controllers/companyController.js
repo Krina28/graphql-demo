@@ -7,8 +7,14 @@ let comapnyCtrl = {
     },
     addCompany: async (args) => {
         await Company.create(args, function (err, data) {
-
-            return addedCompany;
+            if (err) {
+                console.log("Something wrong when adding data!", err);
+                return err;
+            }
+            delete data.__v;
+            addedCompany = data;
+            //console.log('added company', data, addedCompany)
+            return data;
         })
     }
 }
