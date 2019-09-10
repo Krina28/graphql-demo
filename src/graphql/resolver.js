@@ -52,21 +52,30 @@ var resolvers = {
         getUser(obj, { id }) {
             return userCtrl.getUserById({ id });
         },
+        // get single products call
         getAllProducts() {
             return productCtrl.getAllProductList();
         },
+        // get all companies call
         getAllCompanies() {
             return companyCtrl.getAllCompanies();
+        },
+        // get single product call
+        getProductById(obj, { _id }) {
+            return productCtrl.getProductById({ _id });
         }
     },
 
     Mutation: {
+        // add user call
         addUser(obj, args) {
             return userCtrl.addUser(args);
         },
+        // update user call
         updateUser(obj, args) {
             return userCtrl.updateUser(args);
         },
+        // add company call
         addCompany(obj, args) {
             return companyCtrl.addCompany(args);
         },

@@ -5,7 +5,8 @@ const { Schema } = mongoose;
 const productSchema = new Schema({
     fname: String,
     category: String,
-    warehouse: String
+    warehouse: String,
+    image: String,
 }, {
         collection: "product"
     })

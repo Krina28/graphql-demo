@@ -7,7 +7,8 @@ scalar HashedPassword
 type Product {
     fname: String,
     category: String,
-    warehouse: String
+    warehouse: String,
+    image: String
 }
 #User Schema
 type User {
@@ -29,6 +30,7 @@ type Query {
     getAllUsers: [User]
     getUser(id: Int!): User
     getAllProducts: [Product]
+    getProductById(_id: String!): Product
     getAllCompanies: [Company]
 }
 #List of all mutations
