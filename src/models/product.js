@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
-//var database = require("../config/index");
 const { Schema } = mongoose;
 
 const productSchema = new Schema({
+    _id: mongoose.Schema.Types.ObjectId,
     fname: String,
     category: String,
     warehouse: String,

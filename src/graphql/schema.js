@@ -5,6 +5,7 @@ var typeDefs = gql`
 scalar HashedPassword
 #Product Schema
 type Product {
+    _id: String,
     fname: String,
     category: String,
     warehouse: String,
