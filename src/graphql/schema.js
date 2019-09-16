@@ -27,7 +27,6 @@ type currentUser {
     age: Int,
     email: String,
     address: String,
-    password: HashedPassword,
     token: String
 }
 #Company Schema
