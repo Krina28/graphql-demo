@@ -20,6 +20,16 @@ type User {
     address: String,
     password: HashedPassword
 }
+#Current User Schema
+type currentUser {
+    _id: String,
+    name: String,
+    age: Int,
+    email: String,
+    address: String,
+    password: HashedPassword,
+    token: String
+}
 #Company Schema
 type Company {
     _id: String,
@@ -39,6 +49,7 @@ type Mutation {
     updateUser(_id: String!, name: String, age: Int, email:String, address: String): User
     addUser(email:String!, name: String, age: Int, address: String, password: HashedPassword!): User
     addCompany(name:String!, location: String!, num_of_departments: Int!): Company
+    login(email:String!, password: String!): currentUser
 }`;
 
 module.exports = typeDefs;

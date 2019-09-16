@@ -2,6 +2,7 @@ const { GraphQLScalarType } = require('graphql');
 const userCtrl = require('../controllers/userController');
 const productCtrl = require('../controllers/productController');
 const companyCtrl = require('../controllers/companyController');
+const authCtrl = require('../controllers/authController');
 const bcrypt = require('bcrypt');
 
 const saltRounds = 10;
@@ -78,6 +79,9 @@ var resolvers = {
         // add company call
         addCompany(obj, args) {
             return companyCtrl.addCompany(args);
+        },
+        login(obj, args) {
+            return authCtrl.login(args);
         },
     },
     HashedPassword
