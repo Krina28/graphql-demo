@@ -9,9 +9,13 @@ let authCtrl = {
                 if (err) {
                     reject(err)
                 } else {
-                    var token = jwt.sign({ _id: data._id }, 'secret');
-                    data.token = token;
-                    resolve(data)
+                    if (data) {
+                        var token = jwt.sign({ _id: data._id }, 'secret');
+                        data.token = token;
+                        resolve(data)
+                    } else {
+                        resolve({ message: 'User not found!!' })
+                    }
                 }
             })
         })
