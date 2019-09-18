@@ -9,6 +9,10 @@ let productCtrl = {
         let response = await Product.find();
         return response;
     },
+    getProductById: async (args) => {
+        let response = await Product.findById(args._id);
+        return response;
+    }
 }
 
 module.exports = productCtrl;

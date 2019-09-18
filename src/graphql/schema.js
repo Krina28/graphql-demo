@@ -5,9 +5,11 @@ var typeDefs = gql`
 scalar HashedPassword
 #Product Schema
 type Product {
+    _id: String,
     fname: String,
     category: String,
-    warehouse: String
+    warehouse: String,
+    image: String
 }
 #User Schema
 type User {
@@ -17,6 +19,15 @@ type User {
     email: String,
     address: String,
     password: HashedPassword
+}
+#Current User Schema
+type currentUser {
+    _id: String,
+    name: String,
+    age: Int,
+    email: String,
+    address: String,
+    token: String
 }
 #Company Schema
 type Company {
@@ -29,6 +40,7 @@ type Query {
     getAllUsers: [User]
     getUser(id: Int!): User
     getAllProducts: [Product]
+    getProductById(_id: String!): Product
     getAllCompanies: [Company]
 }
 #List of all mutations
@@ -36,6 +48,7 @@ type Mutation {
     updateUser(_id: String!, name: String, age: Int, email:String, address: String): User
     addUser(email:String!, name: String, age: Int, address: String, password: HashedPassword!): User
     addCompany(name:String!, location: String!, num_of_departments: Int!): Company
+    login(email:String!, password: String!): currentUser
 }`;
 
 module.exports = typeDefs;

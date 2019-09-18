@@ -10,6 +10,7 @@ let userCtrl = {
         return user[0];
     },
     addUser: async (args) => {
+        console.log('fun', args)
         await User.create(args, function (err, data) {
             let addedUser = {};
             console.log('addedUsersdfsdf', data)
